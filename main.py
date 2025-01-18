@@ -11,10 +11,7 @@ def convert_temperature():
       result = (fahrenheit - 32) * 5/9
     elif target_unit == "Кельвины (K)":
       result = (fahrenheit - 32) * 5/9 + 273.15
-    else:
-      result = "Ошибка"
-    
-    label_result.config(text=f"Результат: {result:.2f} {target_unit.split()[0]}")
+    label_result.config(text=f"Результат: {result:.2f}")
   except ValueError:
     label_result.config(text="Ошибка: Введите числовое значение")
 # Создаем главное окно
@@ -37,7 +34,7 @@ combo_target_unit.grid(row=1, column=1, padx=10, pady=10)
 combo_target_unit.current(0)  # Устанавливаем значение по умолчанию
 
 # Создаем и размещаем кнопку для конвертации
-button_convert = tk.Button(root, text="Конвертировать", command=convert_temperature)
+button_convert = tk.Button(root, text="Конвертировать", activebackground="red", command=convert_temperature)
 button_convert.grid(row=2, column=0, columnspan=2, padx=10, pady=10)
 
 # Создаем и размещаем метку для отображения результата
