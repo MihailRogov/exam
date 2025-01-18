@@ -20,7 +20,7 @@ def convert_temperature():
 # Создаем главное окно
 root = tk.Tk()
 root.title("Конвертер температуры")
-
+root.resizable(False, False)  # Блокируем изменение размера окна
 # Создаем и размещаем метку и поле ввода для температуры в Фаренгейтах
 label_fahrenheit = tk.Label(root, text="Введите температуру в Фаренгейтах:")
 label_fahrenheit.grid(row=0, column=0, padx=10, pady=10)
