@@ -3,7 +3,6 @@ from tkinter import ttk
 
 # Функция для конвертации температуры
 def convert_temperature():
-  # Обновляем текст метки с результатом
   try:
     fahrenheit = float(entry_fahrenheit.get())
     target_unit = combo_target_unit.get()
