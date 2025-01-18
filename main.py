@@ -3,20 +3,21 @@ from tkinter import ttk
 
 # Функция для конвертации температуры
 def convert_temperature():
-  fahrenheit = float(entry_fahrenheit.get())  # Получаем значение температуры в Фаренгейтах
-  target_unit = combo_target_unit.get()  # Получаем выбранную целевую единицу измерения
-  
-  # Конвертируем температуру в выбранную единицу измерения
-  if target_unit == "Цельсии (ºC)":
-    result = (fahrenheit - 32) * 5/9
-  elif target_unit == "Кельвины (K)":
-    result = (fahrenheit - 32) * 5/9 + 273.15
-  else:
-    result = "Ошибка"
-  
   # Обновляем текст метки с результатом
-  label_result.config(text=f"Результат: {result:.2f} {target_unit.split()[0]}")
-
+  try:
+    fahrenheit = float(entry_fahrenheit.get())
+    target_unit = combo_target_unit.get()
+    
+    if target_unit == "Цельсии (ºC)":
+      result = (fahrenheit - 32) * 5/9
+    elif target_unit == "Кельвины (K)":
+      result = (fahrenheit - 32) * 5/9 + 273.15
+    else:
+      result = "Ошибка"
+    
+    label_result.config(text=f"Результат: {result:.2f} {target_unit.split()[0]}")
+  except ValueError:
+    label_result.config(text="Ошибка: Введите числовое значение")
 # Создаем главное окно
 root = tk.Tk()
 root.title("Конвертер температуры")
